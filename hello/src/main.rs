@@ -5,12 +5,14 @@ use hello::ThreadPool;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:8080").unwrap();
-    let pool = ThreadPool::new(4);
+    let pool = ThreadPool::new(8);
 
     listener
         .incoming()
         .map(|stream| stream.unwrap())
         .for_each(|stream| pool.execute(|| handle_connection(stream)));
+
+    println!("Shutting down.");
 }
 
 fn handle_connection(mut stream: TcpStream) {
