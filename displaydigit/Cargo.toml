@@ -1,0 +1,6 @@
+[package]
+name = "displaydigit"
+version = "0.1.0"
+authors = ["Nicky van Meurs <Nekoniri@outlook.com>"]
+
+[dependencies]
